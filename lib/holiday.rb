@@ -75,10 +75,21 @@ def all_holidays_with_bbq(holiday_hash)
   # include the string "BBQ"
   array_v = []
   holiday_hash.each { |season, holiday|
-    binding.pry
-    array_v << holiday.select { |day, supplies|
+    array_v << holiday.select { |holiday, supplies|
       supplies.include? "BBQ"
     }.keys
   }
   array_v.flatten!
+
+  # ALTERNATIVE–
+  #   holiday_hash.each { |season, holiday|
+  #     if array_holiday =
+  #     holiday.select { |holiday, supplies|
+  #       supplies.include? "BBQ"
+  #     }.keys[0]
+  #       array_v << array_holiday
+  #     end
+  #   }
+  #   array_v
+  # end
 end
