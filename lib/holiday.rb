@@ -72,17 +72,22 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, holiday|
     puts "#{season.to_s.capitalize}:"
     holiday.each do |day, items|
-      output = " #{day.to_s.match(/[\D]+/)}:"
-      output = output.split("_")
-      output.each {|word| word.capitalize!}
-      output.join
-      puts "#{output}, items"
+      # Format holiday output
+      holiday_output = "#{day.to_s.match(/[\D]+/)}:"
+      holiday_output = holiday_output.split("_")
+      holiday_output.each do |word|
+        word.capitalize!
+      end
+      holiday_output = holiday_output.join(" ")
+      # Format items output
+      items_output = items.join(", ")
+
+      # Print output *high fives*
+      puts "  #{holiday_output} #{items_output}"
     end
   end
 end
-# Iterate through each season of holiday_hash
-# Iterate through each holiday per season
-# TBD.....
+
 
 all_supplies_in_holidays(holiday_supplies)
 
